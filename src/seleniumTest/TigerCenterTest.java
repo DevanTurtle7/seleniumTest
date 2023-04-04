@@ -3,6 +3,8 @@ package seleniumTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
+import static seleniumTest.DriverPreference.driverName;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +19,7 @@ class TigerCenterClass {
 
     @BeforeEach
     void setUp() throws Exception {
-        System.setProperty("webdriver.chrome.driver", "webdrivers/chromedriver"); // can be replaced with Firefox driver
+        System.setProperty("webdriver.chrome.driver", "webdrivers/" + driverName); // can be replaced with Firefox driver
         driver = new ChromeDriver(); // can be replaced with Firefox
         baseUrl = "https://"; // TARGET URL
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
