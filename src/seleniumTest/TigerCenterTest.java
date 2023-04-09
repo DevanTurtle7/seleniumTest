@@ -30,7 +30,7 @@ class TigerCenterClass {
 
     @AfterEach
     void tearDown() {
-        //driver.quit();
+        driver.quit();
     }
 
     @Test
@@ -45,27 +45,41 @@ class TigerCenterClass {
     @Test
     public void testClassSearchSWEN352() throws Exception {
     	
-    	//driver.findElement(By.xpath(""));
-    	
         driver.get(baseUrl+"tigercenter.rit.edu/tigerCenterApp/landing");
         WebElement classButton = driver.findElement(By.xpath("//*[@id=\"angularApp\"]/app-root/div[2]/mat-sidenav-container[2]/mat-sidenav-content/div[2]/landing-page/div/div/div/div/div[4]/a[1]"));
         //assertEquals("Class Search", classButton.getText());
         classButton.click();
+        
         //select term
         new Select (driver.findElement(By.xpath("//*[@id=\"hideTerm\"]/div/select"))).selectByVisibleText("2023-24 Fall (2231)");
-        //click searchbar
+        
+        //clear search bar
         driver.findElement(By.xpath("//*[@id=\"ng2Completer\"]/div/input")).clear();
+        
         //type swen 352
         driver.findElement(By.xpath("//*[@id=\"ng2Completer\"]/div/input")).sendKeys("swen 352");
-        //enter
+        
+        //click search
         driver.findElement(By.xpath("//*[@id=\"classSearchContainer\"]/div[2]/form/div/button")).click();
-        //driver.findElement(By.xpath(""));
+        
         //get list of webelements from class details table
-        WebElement classDetails = driver.findElement(By.xpath("//*[@id=\"classSearchContainer\"]/div[2]/div[4]/div[5]/app-class-search-row/div"));
-        //go through webelements list and print days, time, location, instructor
-        System.out.println(classDetails);
+        WebElement classDetails = driver.findElement(By.xpath("//*[@id=\"classSearchContainer\"]/div[2]/div[4]/div[5]"));
+        
+        //convert to list
+        String tableText = classDetails.getText();
+        String[] lines = tableText.split("\n");
+        
+        System.out.println("***SWEN 352 TEST***");
+        //print days
+        System.out.println("DAYS: " + lines[15]);
+        //print time
+        System.out.println("TIME: " + lines[16]);
+     	//print location
+        System.out.println("LOCATION: " + lines[17]);
+     	//print instructor
+        System.out.println("INSTRUCTOR: " + lines[18]);
         //3 second delay
-        new WebDriverWait(driver, 5);
+        Thread.sleep(3000);
         
     }
 
