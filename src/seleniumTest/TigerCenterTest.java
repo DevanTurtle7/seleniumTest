@@ -26,6 +26,7 @@ class TigerCenterClass {
         driver = new ChromeDriver(); // can be replaced with Firefox
         baseUrl = "https://"; // TARGET URL
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.quit();
     }
 
     @AfterEach
