@@ -46,11 +46,17 @@ class SwenDeptInfos {
         driver.findElement(By.xpath("//*[@id=\"block-rit-bootstrap-subtheme-content\"]/div[3]/div[3]/div/div/div/div/div/div/div/div/ul/li[3]/a")).click();
         //click contact
         driver.findElement(By.xpath("//*[@id=\"block-rit-bootstrap-subtheme-rit-main-menu\"]/ul/li[7]/a")).click();
+        
         //click department of software engineering
         driver.findElement(By.xpath("//*[@id=\"card-header-4291\"]/p/a/span[1]")).click();
         Thread.sleep(3000);
         //print name
         String name = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4291\"]/div/div/article/div/div[2]/div[1]/a"))).getText();
+        //check if available
+        if (name.isEmpty()) {
+        	System.out.println("Contact information not found");
+        	return;
+        }
         System.out.println(name);
         //print email
         String email = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4291\"]/div/div/article/div/div[3]/div[1]/a"))).getText();
@@ -67,9 +73,93 @@ class SwenDeptInfos {
         //print address
         String address = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4291\"]/div/div/article/div/div[3]/div[2]"))).getText();
         System.out.println(address);
-           
         Thread.sleep(3000);
+    }
+    
+    //written by cws2525
+    @Test
+    public void testCSDepartment() throws Exception {
+    	System.out.println("***CS DEPARTMENT TEST***");
+    	driver.get(baseUrl+"rit.edu/");
+        //click academics
+        driver.findElement(By.xpath("//*[@id=\"main-nav--link--academics\"]")).click();
+        //click colleges
+        driver.findElement(By.xpath("//*[@id=\"block-rit-bootstrap-subtheme-rit-main-menu\"]/ul/li[2]/div/div/ul[2]/li[1]/a")).click();
+        //click golisano
+        driver.findElement(By.xpath("//*[@id=\"block-rit-bootstrap-subtheme-content\"]/div[3]/div[3]/div/div/div/div/div/div/div/div/ul/li[3]/a")).click();
+        //click contact
+        driver.findElement(By.xpath("//*[@id=\"block-rit-bootstrap-subtheme-rit-main-menu\"]/ul/li[7]/a")).click();
         
+        //click department of CS
+        driver.findElement(By.xpath("//*[@id=\"card-header-4303\"]/p/a/span[1]")).click();
+        Thread.sleep(3000);
+        //print name
+        String name = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4303\"]/div/div[1]/article/div/div[2]/div[1]/a"))).getText();
+        //check if available
+        if (name.isEmpty()) {
+        	System.out.println("Contact information not found");
+        	return;
+        }
+        System.out.println(name);
+        //print email
+        String email = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4303\"]/div/div[1]/article/div/div[3]/div[1]/a"))).getText();
+        System.out.println(email);
+        //print title
+        String title = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4303\"]/div/div[1]/article/div/div[2]/div[2]"))).getText();
+        System.out.println(title);
+        //print department
+        String department = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4303\"]/div/div[1]/article/div/div[2]/div[3]"))).getText();
+        System.out.println(department);
+        //print college
+        String college = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4303\"]/div/div[1]/article/div/div[2]/div[4]"))).getText();
+        System.out.println(college);
+        //print address
+        String address = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4303\"]/div/div[1]/article/div/div[3]/div[2]"))).getText();
+        System.out.println(address);
+        Thread.sleep(3000);
+    }
+    
+    //written by cws2525
+    @Test
+    public void testInformationDepartment() throws Exception {
+    	System.out.println("***INFORMATION DEPARTMENT TEST***");
+    	driver.get(baseUrl+"rit.edu/");
+        //click academics
+        driver.findElement(By.xpath("//*[@id=\"main-nav--link--academics\"]")).click();
+        //click colleges
+        driver.findElement(By.xpath("//*[@id=\"block-rit-bootstrap-subtheme-rit-main-menu\"]/ul/li[2]/div/div/ul[2]/li[1]/a")).click();
+        //click golisano
+        driver.findElement(By.xpath("//*[@id=\"block-rit-bootstrap-subtheme-content\"]/div[3]/div[3]/div/div/div/div/div/div/div/div/ul/li[3]/a")).click();
+        //click contact
+        driver.findElement(By.xpath("//*[@id=\"block-rit-bootstrap-subtheme-rit-main-menu\"]/ul/li[7]/a")).click();
+        
+        //click department of information
+        driver.findElement(By.xpath("//*[@id=\"card-header-4315\"]/p/a/span[1]")).click();
+        Thread.sleep(3000);
+        //print name
+        String name = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4315\"]/div/div[1]/article/div/div[2]/div[1]/a"))).getText();
+        //check if available
+        if (name.isEmpty()) {
+        	System.out.println("Contact information not found");
+        	return;
+        }
+        System.out.println(name);
+        //print email
+        String email = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4315\"]/div/div[1]/article/div/div[3]/div[1]/a"))).getText();
+        System.out.println(email);
+        //print title
+        String title = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4315\"]/div/div[1]/article/div/div[2]/div[2]"))).getText();
+        System.out.println(title);
+        //print department
+        String department = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4315\"]/div/div[1]/article/div/div[2]/div[3]"))).getText();
+        System.out.println(department);
+        //print college
+        String college = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4315\"]/div/div[1]/article/div/div[2]/div[4]"))).getText();
+        System.out.println(college);
+        //print address
+        String address = (driver.findElement(By.xpath("//*[@id=\"card-collapse-4315\"]/div/div[1]/article/div/div[3]/div[2]"))).getText();
+        System.out.println(address);
+        Thread.sleep(3000);
     }
 
 
